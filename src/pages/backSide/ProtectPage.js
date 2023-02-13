@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom'
 
 const ProtectPage = ({ children }) => {
     const { user } = useAppContext()
-    if (!user.islogin) {
+    if (!user) {
         return <Navigate to='/register' />
     } 
     return children

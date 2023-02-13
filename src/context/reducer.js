@@ -1,4 +1,4 @@
-import { REGISTER } from "./action";
+import { REGISTER,LOGIN } from "./action";
 
 const reducer=(state,action)=>{
     switch(action.type){

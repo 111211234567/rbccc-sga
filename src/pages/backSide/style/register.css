@@ -64,3 +64,6 @@ button:hover {
     align-items: center;
     padding-bottom: 2rem;
 }
+a:hover{
+    color: blue;
+}

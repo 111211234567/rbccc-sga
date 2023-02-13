@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import register from './style/register.css'
 
 const Register = () => {
+    const [isUser,setIsUser]=useState(false)
+    const alreadyUser=()=>{
+        setIsUser(!isUser)
+    }
     return (
         <div className='register-container' >
             <div className='register-form' >
@@ -10,13 +15,15 @@ const Register = () => {
                         <h4>Ricard Bland College Sga System</h4>
                     </div>
                     <form>
-                        <input />
-                        <input />
-                        <input />
+                        <input placeholder='username' name='name' />
+                        {!isUser && <input placeholder='email' name='email' />}
+                        <input placeholder='password' name='password' />
                         <button>submit</button>
                     </form>
                     <div className='change' >
-                        already have account
+                        {isUser ? <div> want registe for account? <a onClick={()=>{alreadyUser()}} >click here!</a></div> :
+                        <div> already have account? <a onClick={()=>{alreadyUser()}} >click here!</a></div> }
+                       
                     </div>
                 </div>
             </div>
