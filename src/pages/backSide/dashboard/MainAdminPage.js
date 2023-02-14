@@ -3,7 +3,7 @@ import { useAppContext } from '../../../context/AppContext'
 import css from '../style/mainpage.css'
 
 const MainAdminPage = () => {
-    const { logout } = useAppContext()
+    const { logout,user } = useAppContext()
     return (
         <div>
             mainpage

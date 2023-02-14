@@ -3,7 +3,7 @@ import React, { useReducer, useContext, createContext } from "react";
 import { REGISTER, LOGIN, LOGOUT } from "./action";
 import reducer from "./reducer";
 
-const user = JSON.parse(localStorage.getItem('user'))
+const user = localStorage.getItem('user')
 
 const initialState = {
     isLoading: false,
@@ -11,7 +11,7 @@ const initialState = {
     alertText: '',
     alertType: '',
     openBar: false,
-    user: user ? user : null
+    user: user ? JSON.parse(user) : null
 }
 
 
@@ -31,7 +31,7 @@ const AppProvider = ({ children }) => {
 
     const logout = () => {
         removeUserFromLocalStorage()
-        dispatch({ type: LOGOUT})
+        dispatch({ type: LOGOUT })
     }
 
     const register = async (currentUser) => {
@@ -39,10 +39,9 @@ const AppProvider = ({ children }) => {
             const response = await axios.post(`${url}/auth/register`, currentUser)
             const user = response.data
             addUserToLocalStorage(user)
-            console.log(user)
-            // dispatch({ type: LOGIN, payload: user })
+            dispatch({ type: LOGIN, payload: user })
         } catch (error) {
-
+            console.log(error)
         }
     }
 
@@ -53,11 +52,10 @@ const AppProvider = ({ children }) => {
             const response = await axios.post(`${url}/auth/login`, tryLogin)
             const user = response.data
             addUserToLocalStorage(user)
-            console.log(user)
-            // dispatch({ type: LOGIN, payload: user })
+            dispatch({ type: LOGIN, payload: user })
 
         } catch (error) {
-
+            console.log(error)
         }
     }
 
@@ -89,9 +87,10 @@ const AppProvider = ({ children }) => {
     }
 
     return (
-        <AppContext.Provider value={{ ...state, register, generalPost, login,
+        <AppContext.Provider value={{
+            ...state, register, generalPost, login,
             logout
-         }}  >
+        }}  >
             {children}
         </AppContext.Provider>
     )

@@ -38,11 +38,13 @@ const Register = () => {
             mainPoint: 'auth',
             secondePoint: 'register'
         }
-        if(!values.email){
-            login(values).then(()=>{window.location.reload()})
-        }else{
+        if(isUser){
+            login(values)
+        }
+        if(!isUser){
             register(values)
         }
+        
         
         
     }
