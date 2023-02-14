@@ -43,7 +43,7 @@ input {
   border-radius: 7px;
   border-style: solid;
 }
-button {
+.loginbtn {
     color: whitesmoke;
     font-size: 1.5rem;
   margin-top: 2rem;

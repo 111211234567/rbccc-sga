@@ -1,5 +1,5 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import { ShareLayoutOfBackSide, ProtectPage,Register } from "./pages/backSide";
+import { ShareLayoutOfBackSide, ProtectPage, Register, MainAdminPage } from "./pages/backSide";
 import { ShareLayoutOfFront } from "./pages/frontSide";
 
 function App() {
@@ -14,9 +14,9 @@ function App() {
             <ShareLayoutOfBackSide />
           </ProtectPage>
         } path='/app'>
-
+          <Route path="/app/mainpage" element={<MainAdminPage />} />
         </Route>
-        < Route element={<Register/>} path='/register' />
+        < Route element={<Register />} path='/register' />
       </Routes>
     </BrowserRouter>
   );
