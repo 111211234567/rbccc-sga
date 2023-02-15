@@ -37,3 +37,9 @@
 .ac-center{
     align-content: center;
 }
+.ji-center{
+    justify-items:center ;
+}
+.ai-center{
+    align-items: center;
+}

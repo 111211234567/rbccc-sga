@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useReducer, useContext, createContext } from "react";
-import { REGISTER, LOGIN, LOGOUT } from "./action";
+import { REGISTER, LOGIN, LOGOUT,SHOW_ALERT, CLEAR_ALERT } from "./action";
 import reducer from "./reducer";
 
 const user = localStorage.getItem('user')
@@ -29,6 +29,12 @@ const AppProvider = ({ children }) => {
         localStorage.removeItem('user')
     }
 
+    const clearALert=()=>{
+        setTimeout(() => {
+            dispatch({ type: CLEAR_ALERT });
+          }, 3000);
+    }
+
     const logout = () => {
         removeUserFromLocalStorage()
         dispatch({ type: LOGOUT })
@@ -41,7 +47,8 @@ const AppProvider = ({ children }) => {
             addUserToLocalStorage(user)
             dispatch({ type: LOGIN, payload: user })
         } catch (error) {
-            console.log(error)
+            dispatch({type:SHOW_ALERT,payload:{msg:error.response.data.msg}})
+            clearALert()
         }
     }
 
@@ -55,7 +62,8 @@ const AppProvider = ({ children }) => {
             dispatch({ type: LOGIN, payload: user })
 
         } catch (error) {
-            console.log(error)
+            dispatch({type:SHOW_ALERT,payload:{msg:error.response.data.msg}})
+            clearALert()
         }
     }
 
@@ -82,7 +90,8 @@ const AppProvider = ({ children }) => {
                 await axios.post(`${url}/${mainPoint}/${secondePoint}/${mainId}/${subId}/${thirdId}`, data)
             }
         } catch (error) {
-
+            dispatch({type:SHOW_ALERT,payload:{msg:error.response.data.msg}})
+            clearALert()
         }
     }
 

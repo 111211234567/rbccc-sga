@@ -1,0 +1,12 @@
+.Alert {
+    display: flex;
+  background-color: rgb(209, 83, 15);
+  width: 250px;
+  height: 50px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.register-alert-text{
+    font-size: 1.5rem;
+}

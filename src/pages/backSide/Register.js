@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import register from './style/register.css'
 import { useAppContext } from '../../context/AppContext'
 import { useNavigate } from 'react-router-dom'
+import { Alert } from './backsideComponent'
 
 const initialState = {
     name: '',
@@ -14,7 +15,7 @@ const Register = () => {
     const navigate = useNavigate()
     const [isUser, setIsUser] = useState(false)
     const [values, setValues] = useState(initialState)
-    const { register, generalPost, login, user,test,alertText } = useAppContext()
+    const { register, generalPost, login, user,test,alertText,showAlert } = useAppContext()
 
     useEffect(() => {
         if (user) {
@@ -56,6 +57,7 @@ const Register = () => {
                         <h4>Ricard Bland College Sga System</h4>
                     </div>
                     <form onSubmit={onSubmitHandler} >
+                        {showAlert && <Alert/>}
                         <input placeholder='name' name='name' onChange={onChangeHandler} />
                         {!isUser && <input placeholder='email' name='email' onChange={onChangeHandler} />}
                         <input placeholder='password' name='password' onChange={onChangeHandler} />
