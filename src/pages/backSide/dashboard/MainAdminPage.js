@@ -7,7 +7,7 @@ const MainAdminPage = () => {
     return (
         <div>
             mainpage
-            <button onClick={()=>{logout()}} >logout</button>
+            
         </div>
     )
 }

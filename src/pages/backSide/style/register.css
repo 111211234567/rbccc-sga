@@ -54,7 +54,7 @@ input {
   border-style: none;
   border-radius: 9px;
 }
-button:hover {
+.loginbtn:hover {
   transition: 0.5s;
   background-color: rgb(62, 153, 82);
 }
