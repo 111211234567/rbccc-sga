@@ -4,7 +4,7 @@ body {
   padding: 0;
 }
 .register-container {
- display: flex;
+  display: flex;
   flex-direction: row;
   position: absolute;
   width: 100%;
@@ -44,8 +44,8 @@ input {
   border-style: solid;
 }
 .loginbtn {
-    color: whitesmoke;
-    font-size: 1.5rem;
+  color: whitesmoke;
+  font-size: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
   width: 9rem;
@@ -58,12 +58,12 @@ input {
   transition: 0.5s;
   background-color: rgb(62, 153, 82);
 }
-.title{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 2rem;
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
 }
-a:hover{
-    color: blue;
+a:hover {
+  color: blue;
 }

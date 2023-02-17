@@ -1,6 +1,9 @@
 import axios from "axios";
 import React, { useReducer, useContext, createContext } from "react";
-import { REGISTER, LOGIN, LOGOUT,SHOW_ALERT, CLEAR_ALERT } from "./action";
+import {
+    REGISTER, LOGIN, LOGOUT, SHOW_ALERT, CLEAR_ALERT,
+    GET_ALL_NEWS,GET_ONE_NEWS
+} from "./action";
 import reducer from "./reducer";
 
 const user = localStorage.getItem('user')
@@ -11,7 +14,11 @@ const initialState = {
     alertText: '',
     alertType: '',
     openBar: false,
-    user: user ? JSON.parse(user) : null
+    user: user ? JSON.parse(user) : null,
+    pageName: '',
+    subPageName: '',
+    news: [],
+    new: {}
 }
 
 
@@ -29,10 +36,10 @@ const AppProvider = ({ children }) => {
         localStorage.removeItem('user')
     }
 
-    const clearALert=()=>{
+    const clearALert = () => {
         setTimeout(() => {
             dispatch({ type: CLEAR_ALERT });
-          }, 3000);
+        }, 3000);
     }
 
     const logout = () => {
@@ -47,7 +54,7 @@ const AppProvider = ({ children }) => {
             addUserToLocalStorage(user)
             dispatch({ type: LOGIN, payload: user })
         } catch (error) {
-            dispatch({type:SHOW_ALERT,payload:{msg:error.response.data.msg}})
+            dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
             clearALert()
         }
     }
@@ -62,7 +69,7 @@ const AppProvider = ({ children }) => {
             dispatch({ type: LOGIN, payload: user })
 
         } catch (error) {
-            dispatch({type:SHOW_ALERT,payload:{msg:error.response.data.msg}})
+            dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
             clearALert()
         }
     }
@@ -90,7 +97,28 @@ const AppProvider = ({ children }) => {
                 await axios.post(`${url}/${mainPoint}/${secondePoint}/${mainId}/${subId}/${thirdId}`, data)
             }
         } catch (error) {
-            dispatch({type:SHOW_ALERT,payload:{msg:error.response.data.msg}})
+            dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
+            clearALert()
+        }
+    }
+
+    const getAllNews = async () => {
+        try {
+            const response = await axios.get(`${url}/news`)
+            const news = response.data
+            dispatch({ type: GET_ALL_NEWS, payload: news })
+        } catch (error) {
+            dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
+            clearALert()
+        }
+    }
+    const getOneNews = async (NewsId) => {
+        try {
+            const response = await axios.get(`${url}/news/new/${NewsId}`)
+            const news = response.data
+            dispatch({ type: GET_ONE_NEWS, payload: news })
+        } catch (error) {
+            dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
             clearALert()
         }
     }
@@ -98,7 +126,7 @@ const AppProvider = ({ children }) => {
     return (
         <AppContext.Provider value={{
             ...state, register, generalPost, login,
-            logout
+            logout, getAllNews,getOneNews
         }}  >
             {children}
         </AppContext.Provider>

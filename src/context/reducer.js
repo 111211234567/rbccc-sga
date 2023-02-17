@@ -1,4 +1,4 @@
-import { REGISTER, LOGIN, LOGOUT, SHOW_ALERT, CLEAR_ALERT } from "./action";
+import { REGISTER, LOGIN, LOGOUT, SHOW_ALERT, CLEAR_ALERT,GET_ALL_NEWS,GET_ONE_NEWS } from "./action";
 import { initialState } from "./AppContext";
 
 const reducer = (state, action) => {
@@ -12,6 +12,10 @@ const reducer = (state, action) => {
             return { ...state, showAlert: true, alertText: action.payload.msg }
         case CLEAR_ALERT:
             return { ...state, showAlert: false, alertText: "" }
+        case GET_ALL_NEWS:
+            return {...state, news:action.payload.news}
+        case GET_ONE_NEWS:
+            return {...state,new:action.payload.news}
     }
 }
 
