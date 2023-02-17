@@ -6,7 +6,7 @@ import './style/shareLayout.css'
 
 const ShareLayoutOfBackSide = () => {
   return (
-    <div className='container flex-row beige p-abs' >
+    <div className=' container flex-row beige p-abs' >
       <div className='sidebar-container' >
         <SideNav />
       </div>
