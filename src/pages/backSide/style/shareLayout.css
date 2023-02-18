@@ -86,3 +86,6 @@
     transition: 0.5s;
     background-color: rgb(63, 193, 71);
 }
+.jc-between{
+    justify-content: space-between;
+}

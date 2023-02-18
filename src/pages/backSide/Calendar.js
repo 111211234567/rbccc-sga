@@ -2,7 +2,7 @@ import Calendar from '../../Components/Calendar';
 
 function CalendarShow() {
   return (
-    <div style={{backgroundColor:"red"} }>
+    <div style={{backgroundColor:"white"} }>
       <Calendar/>
     </div>
 

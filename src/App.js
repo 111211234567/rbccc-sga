@@ -1,8 +1,7 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import { ShareLayoutOfBackSide, ProtectPage, Register, MainAdminPage,CalendarShow } from "./pages/backSide";
+import { ShareLayoutOfBackSide, ProtectPage, Register, MainAdminPage,CalendarShow,Infor } from "./pages/backSide";
 import { ShareLayoutOfFront } from "./pages/frontSide";
 import Modal from 'react-modal'
-import {Infor} from "./pages/backSide";
 Modal.setAppElement('#root')
 
 function App() {

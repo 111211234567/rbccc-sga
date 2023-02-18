@@ -102,6 +102,60 @@ const AppProvider = ({ children }) => {
         }
     }
 
+    const generalUpdate = async ({ endpoint, data }) => {
+        try {
+            const { mainPoint, secondePoint, mainId, subId, thirdId } = endpoint
+            if (mainPoint && !secondePoint && !mainId && !mainId && !subId && !thirdId) {
+                await axios.patch(`${url}/${mainPoint}`, data)
+                console.log(`${url}/${mainPoint}`)
+
+            }
+            if (mainPoint && secondePoint && !mainId && !mainId && !subId && !thirdId) {
+                await axios.patch(`${url}/${mainPoint}/${secondePoint}`, data)
+                console.log(`${url}/${mainPoint}/${secondePoint}`)
+
+            }
+            if (mainPoint && secondePoint && mainId && mainId && !subId && !thirdId) {
+                await axios.patch(`${url}/${mainPoint}/${secondePoint}/${mainId}`, data)
+            }
+            if (mainPoint && secondePoint && mainId && mainId && subId && !thirdId) {
+                await axios.patch(`${url}/${mainPoint}/${secondePoint}/${mainId}/${subId}`, data)
+            }
+            if (mainPoint && secondePoint && mainId && mainId && subId && thirdId) {
+                await axios.patch(`${url}/${mainPoint}/${secondePoint}/${mainId}/${subId}/${thirdId}`, data)
+            }
+        } catch (error) {
+            dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
+            clearALert()
+        }
+    }
+    const generalDelete = async ({ endpoint }) => {
+        try {
+            const { mainPoint, secondePoint, mainId, subId, thirdId } = endpoint
+            if (mainPoint && !secondePoint && !mainId && !mainId && !subId && !thirdId) {
+                await axios.delete(`${url}/${mainPoint}`)
+                console.log(`${url}/${mainPoint}`)
+            }
+            if (mainPoint && secondePoint && !mainId && !mainId && !subId && !thirdId) {
+                await axios.delete(`${url}/${mainPoint}/${secondePoint}`)
+                console.log(`${url}/${mainPoint}/${secondePoint}`)
+
+            }
+            if (mainPoint && secondePoint && mainId && mainId && !subId && !thirdId) {
+                await axios.delete(`${url}/${mainPoint}/${secondePoint}/${mainId}`)
+            }
+            if (mainPoint && secondePoint && mainId && mainId && subId && !thirdId) {
+                await axios.delete(`${url}/${mainPoint}/${secondePoint}/${mainId}/${subId}`)
+            }
+            if (mainPoint && secondePoint && mainId && mainId && subId && thirdId) {
+                await axios.delete(`${url}/${mainPoint}/${secondePoint}/${mainId}/${subId}/${thirdId}`)
+            }
+        } catch (error) {
+            dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
+            clearALert()
+        }
+    }
+
     const getAllNews = async () => {
         try {
             const response = await axios.get(`${url}/news`)
@@ -126,7 +180,8 @@ const AppProvider = ({ children }) => {
     return (
         <AppContext.Provider value={{
             ...state, register, generalPost, login,
-            logout, getAllNews,getOneNews
+            logout, getAllNews,getOneNews,generalUpdate,
+            generalDelete
         }}  >
             {children}
         </AppContext.Provider>
