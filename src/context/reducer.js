@@ -20,6 +20,8 @@ const reducer = (state, action) => {
             return {...state,new:action.payload.news}
         case GET_ALL_ANOUNCEMENT:
             return {...state,anouncements:action.payload }
+        case GET_ONE_ANOUNCEMENT:
+            return {...state,anouncement:action.payload.anouncement}
     }
 }
 

@@ -192,11 +192,22 @@ const AppProvider = ({ children }) => {
         }
     }
 
+    const getOneAnouncement = async (id) => {
+        try {
+            const response = await axios.get(`${url}/anouncement/get/${id}`)
+            const anouncement=response.data
+            dispatch({type:GET_ONE_ANOUNCEMENT,payload:anouncement})
+        } catch (error) {
+            dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
+            clearALert()
+        }
+    }
+
     return (
         <AppContext.Provider value={{
             ...state, register, generalPost, login,
             logout, getAllNews, getOneNews, generalUpdate,
-            generalDelete, getAllAnouncemnt
+            generalDelete, getAllAnouncemnt,getOneAnouncement
         }}  >
             {children}
         </AppContext.Provider>

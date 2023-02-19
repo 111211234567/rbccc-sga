@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import thecss from '../../style/BacksideAnouncement.css'
 import css from '../../style/shareLayout.css'
 import { useAppContext } from '../../../../context/AppContext'
+import AnouncementModual from './AnouncementModual'
+import { useNavigate } from 'react-router-dom'
 
 const initialState = {
     title: '',
@@ -12,6 +14,7 @@ const initialState = {
 const Anouncement = () => {
     const [values, setValues] = useState(initialState)
     const { getAllAnouncemnt, anouncements,generalPost,user } = useAppContext()
+    const navigate=useNavigate()
     useEffect(() => {
         getAllAnouncemnt()
     }, [])
@@ -44,9 +47,9 @@ const Anouncement = () => {
                 <textarea onChange={onChangeHandler} name='description' id='backside-anouncement-description-input' />
                 <button className='btn' >submit</button>
             </form>
-            <div>
+            <div className='width-100 flex-column ac-cenetr ai-center jc-center ji-center ' >
                 {anouncements?.map((a) => {
-                    return <div>{a.title}</div>
+                    return <AnouncementModual  anouncement={a} />
 
                 })}
             </div>

@@ -5,5 +5,7 @@ import MainAdminPage from "./dashboard/MainAdminPage";
 import CalendarShow from "./Calendar";
 import Infor from "./dashboard/Infor";
 import Setting from "./dashboard/Setting";
+import AnouncementDetail from "./dashboard/detailpage/AnouncementDetail";
 
-export{ShareLayoutOfBackSide,Setting,ProtectPage,Register,MainAdminPage,CalendarShow,Infor}
+export{ShareLayoutOfBackSide,Setting,ProtectPage,Register,MainAdminPage,CalendarShow,Infor
+,AnouncementDetail}
