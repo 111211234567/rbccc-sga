@@ -3,5 +3,6 @@ import SideNav from "./SideNav";
 import Topnav from "./Topnav";
 import InforPageTopNav from "./inforPage/InforPageTopNav";
 import NewsPage from "./inforPage/NewsPage";
-
-export {Alert,SideNav,Topnav,InforPageTopNav,NewsPage}
+import Anouncement from "./inforPage/Anouncement";
+import Agenda from "./inforPage/Agenda";
+export { Alert, SideNav, Topnav, InforPageTopNav, NewsPage, Anouncement, Agenda }

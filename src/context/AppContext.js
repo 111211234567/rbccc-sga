@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useReducer, useContext, createContext } from "react";
 import {
     REGISTER, LOGIN, LOGOUT, SHOW_ALERT, CLEAR_ALERT,
-    GET_ALL_NEWS,GET_ONE_NEWS
+    GET_ALL_NEWS, GET_ONE_NEWS, GET_ALL_ANOUNCEMENT,
+    GET_ONE_ANOUNCEMENT
 } from "./action";
 import reducer from "./reducer";
 
@@ -18,7 +19,9 @@ const initialState = {
     pageName: '',
     subPageName: '',
     news: [],
-    new: {}
+    new: {},
+    anouncements: [],
+    anouncement: {}
 }
 
 
@@ -125,6 +128,7 @@ const AppProvider = ({ children }) => {
                 await axios.patch(`${url}/${mainPoint}/${secondePoint}/${mainId}/${subId}/${thirdId}`, data)
             }
         } catch (error) {
+            console.log(error)
             dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
             clearALert()
         }
@@ -177,11 +181,22 @@ const AppProvider = ({ children }) => {
         }
     }
 
+    const getAllAnouncemnt = async () => {
+        try {
+            const response = await axios.get(`${url}/anouncement`)
+            const { Anouncement } = response.data
+            dispatch({ type: GET_ALL_ANOUNCEMENT, payload: Anouncement })
+        } catch (error) {
+            dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
+            clearALert()
+        }
+    }
+
     return (
         <AppContext.Provider value={{
             ...state, register, generalPost, login,
-            logout, getAllNews,getOneNews,generalUpdate,
-            generalDelete
+            logout, getAllNews, getOneNews, generalUpdate,
+            generalDelete, getAllAnouncemnt
         }}  >
             {children}
         </AppContext.Provider>
