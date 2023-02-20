@@ -18,8 +18,8 @@ export default function ({ isOpen, onClose, onEventAdded }) {
   };
 
   return (
-    <Modal  isOpen={isOpen} onRequestClose={onClose}>
-      <form onSubmit={onSubmit}>
+    <Modal  isOpen={isOpen} onRequestClose={onClose} >
+      <form onSubmit={onSubmit} style={{padding: 50}}>
         <input
           placeholder="title"
           value={title}

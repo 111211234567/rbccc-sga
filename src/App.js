@@ -1,5 +1,5 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import { ShareLayoutOfBackSide, ProtectPage, Register, MainAdminPage,CalendarShow,Infor } from "./pages/backSide";
+import { ShareLayoutOfBackSide, ProtectPage, Register, MainAdminPage,CalendarShow,Infor,AnouncementDetail } from "./pages/backSide";
 import { ShareLayoutOfFront } from "./pages/frontSide";
 import Modal from 'react-modal'
 Modal.setAppElement('#root')
@@ -19,6 +19,7 @@ function App() {
           <Route path="/app/mainpage" element={<MainAdminPage />} />
           <Route element={<Infor/>} path="/app/infor" />
           <Route element={<CalendarShow />} path="/app/calender" />
+          <Route element={<AnouncementDetail/>} path="/app/infor/anouncement/:id"/>
         </Route>
         < Route element={<Register />} path='/register' />
       </Routes>
