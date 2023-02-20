@@ -73,7 +73,7 @@ const NewsPage = () => {
             </form>
             <div className='width-100 flex-column ai-center ji-center'>
                 {news.map((n) => {
-                    return < BacksideNews news={n} />
+                    return < BacksideNews News={n} />
                 })}
             </div>
         </div>

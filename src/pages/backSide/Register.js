@@ -56,7 +56,7 @@ const Register = () => {
                     <div className='title'>
                         <h4>Ricard Bland College Sga System</h4>
                     </div>
-                    <form onSubmit={onSubmitHandler} >
+                    <form className='form' onSubmit={onSubmitHandler} >
                         {showAlert && <Alert/>}
                         <input placeholder='name' name='name' onChange={onChangeHandler} />
                         {!isUser && <input placeholder='email' name='email' onChange={onChangeHandler} />}
