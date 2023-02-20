@@ -1,0 +1,7 @@
+#anouncementDelete{
+    background-color: rgb(193, 29, 1);
+}
+#anouncementDelete:hover{
+    transition: 0.5s;
+    background-color: rgb(231, 78, 51);
+}

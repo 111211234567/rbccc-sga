@@ -13,7 +13,7 @@ const initialState = {
 }
 const Anouncement = () => {
     const [values, setValues] = useState(initialState)
-    const { getAllAnouncemnt, anouncements,generalPost,user } = useAppContext()
+    const { getAllAnouncemnt, anouncements,generalPost,user,anouncement } = useAppContext()
     const navigate=useNavigate()
     useEffect(() => {
         getAllAnouncemnt()
@@ -48,7 +48,7 @@ const Anouncement = () => {
                 <button className='btn' >submit</button>
             </form>
             <div className='width-100 flex-column ac-cenetr ai-center jc-center ji-center ' >
-                {anouncements?.map((a) => {
+                {anouncements?.slice(0).reverse().map((a) => {
                     return <AnouncementModual  anouncement={a} />
 
                 })}

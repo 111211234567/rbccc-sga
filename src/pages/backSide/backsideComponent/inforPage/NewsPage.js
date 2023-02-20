@@ -42,6 +42,18 @@ const NewsPage = () => {
             console.log(error)
         }
     }
+    const showNews = () => {
+        var newsNum = news.length
+        var i = 1
+        while (i < newsNum) {
+            var y = newsNum - i
+            var n = news[y]
+            return (
+                < BacksideNews News={n} />
+            )
+            i=i+1
+        }
+    }
     const onSubmitHandler = (e) => {
         e.preventDefault();
         const date = new Date()
@@ -72,9 +84,10 @@ const NewsPage = () => {
                 <button className='btn' >submit</button>
             </form>
             <div className='width-100 flex-column ai-center ji-center'>
-                {news.map((n) => {
+                {news.slice(0).reverse().map((n) => {
                     return < BacksideNews News={n} />
                 })}
+                {/* {showNews()} */}
             </div>
         </div>
     )
