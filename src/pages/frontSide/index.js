@@ -1,3 +1,3 @@
-import ShareLayoutOfFront from "./ShareLayoutOfFront";
+import MainPage from "./MainPage";
 
-export {ShareLayoutOfFront}
+export { MainPage } 
