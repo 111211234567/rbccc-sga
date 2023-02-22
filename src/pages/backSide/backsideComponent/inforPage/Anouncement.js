@@ -45,7 +45,7 @@ const Anouncement = () => {
             <form onSubmit={onSubmitHandler} className='form width-100 flex-column' >
                 <input placeholder='title' name='title' onChange={onChangeHandler} id='backside-anouncement-title-input' />
                 <textarea onChange={onChangeHandler} name='description' id='backside-anouncement-description-input' />
-                <button className='btn' >submit</button>
+                <button className='b-btn' >submit</button>
             </form>
             <div className='width-100 flex-column ac-cenetr ai-center jc-center ji-center ' >
                 {anouncements?.slice(0).reverse().map((a) => {

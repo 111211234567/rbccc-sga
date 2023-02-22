@@ -1,5 +1,5 @@
 import { REGISTER, LOGIN, LOGOUT, SHOW_ALERT, CLEAR_ALERT,GET_ALL_NEWS,GET_ONE_NEWS
-    ,GET_ALL_ANOUNCEMENT,
+    ,GET_ALL_ANOUNCEMENT,GET_ALL_AGENDA,GET_ONE_AGENDA,
     GET_ONE_ANOUNCEMENT } from "./action";
 import { initialState } from "./AppContext";
 
@@ -22,6 +22,10 @@ const reducer = (state, action) => {
             return {...state,anouncements:action.payload }
         case GET_ONE_ANOUNCEMENT:
             return {...state,anouncement:action.payload.anouncement}
+        case GET_ALL_AGENDA:
+            return {...state,agendas:action.payload.ageandas}
+        case GET_ONE_AGENDA:
+            return {...state,agenda:action.payload.agenda}
     }
 }
 

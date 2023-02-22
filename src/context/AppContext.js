@@ -3,7 +3,7 @@ import React, { useReducer, useContext, createContext } from "react";
 import {
     REGISTER, LOGIN, LOGOUT, SHOW_ALERT, CLEAR_ALERT,
     GET_ALL_NEWS, GET_ONE_NEWS, GET_ALL_ANOUNCEMENT,
-    GET_ONE_ANOUNCEMENT
+    GET_ONE_ANOUNCEMENT, GET_ALL_AGENDA, GET_ONE_AGENDA
 } from "./action";
 import reducer from "./reducer";
 
@@ -21,7 +21,9 @@ const initialState = {
     news: [],
     new: {},
     anouncements: [],
-    anouncement: {}
+    anouncement: {},
+    agendas: [],
+    agenda: {}
 }
 
 
@@ -195,19 +197,44 @@ const AppProvider = ({ children }) => {
     const getOneAnouncement = async (id) => {
         try {
             const response = await axios.get(`${url}/anouncement/get/${id}`)
-            const anouncement=response.data
-            dispatch({type:GET_ONE_ANOUNCEMENT,payload:anouncement})
+            const anouncement = response.data
+            dispatch({ type: GET_ONE_ANOUNCEMENT, payload: anouncement })
         } catch (error) {
             dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
             clearALert()
         }
     }
 
+    const getAllAgenda = async () => {
+        try {
+            const response = await axios.get(`${url}/agenda`)
+            const agendas = response.data
+            dispatch({ type: GET_ALL_AGENDA, payload: agendas })
+        } catch (error) {
+            dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
+            clearALert()
+        }
+    }
+
+    const getOneAgenda = async(agendaId) => {
+        try {
+            const response = await axios.get(`${url}/agenda/get/${agendaId}`)
+            const agenda = response.data
+            dispatch({ type: GET_ONE_AGENDA, payload: agenda })
+        } catch(error) {
+            dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
+            clearALert()
+        }
+    }
+
+
+
     return (
         <AppContext.Provider value={{
             ...state, register, generalPost, login,
             logout, getAllNews, getOneNews, generalUpdate,
-            generalDelete, getAllAnouncemnt,getOneAnouncement
+            generalDelete, getAllAnouncemnt, getOneAnouncement,
+            getAllAgenda,getOneAgenda
         }}  >
             {children}
         </AppContext.Provider>

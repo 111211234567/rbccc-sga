@@ -19,7 +19,7 @@ const Infor = () => {
         }
     }
     return (
-        <div className='container flex-cloumn' >
+        <div className='b-container flex-cloumn' >
             <div className='infor-topnav' >
                 < InforPageTopNav changePage={page=>changePage(page)} />
             </div>

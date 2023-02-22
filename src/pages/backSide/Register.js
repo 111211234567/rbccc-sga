@@ -54,7 +54,7 @@ const Register = () => {
             <div className='register-form' >
                 <div className='form' >
                     <div className='title'>
-                        <h4>Ricard Bland College Sga System</h4>
+                        <h4>Richard Bland College Sga System</h4>
                     </div>
                     <form className='form' onSubmit={onSubmitHandler} >
                         {showAlert && <Alert/>}
@@ -64,7 +64,7 @@ const Register = () => {
                         <button className='loginbtn' >submit</button>
                     </form>
                     <div className='change' >
-                        {isUser ? <div> want registe for account? <a onClick={() => { alreadyUser() }} >click here!</a></div> :
+                        {isUser ? <div> want register for account? <a onClick={() => { alreadyUser() }} >click here!</a></div> :
                             <div> already have account? <a onClick={() => { alreadyUser() }} >click here!</a></div>}
 
                     </div>

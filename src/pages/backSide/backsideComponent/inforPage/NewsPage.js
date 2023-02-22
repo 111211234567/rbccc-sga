@@ -42,18 +42,6 @@ const NewsPage = () => {
             console.log(error)
         }
     }
-    const showNews = () => {
-        var newsNum = news.length
-        var i = 1
-        while (i < newsNum) {
-            var y = newsNum - i
-            var n = news[y]
-            return (
-                < BacksideNews News={n} />
-            )
-            i=i+1
-        }
-    }
     const onSubmitHandler = (e) => {
         e.preventDefault();
         const date = new Date()
@@ -81,7 +69,7 @@ const NewsPage = () => {
                     <input name='img' type="file" placeholder='img' onChange={(e) => { uploadImg(e) }} />
                 </div>
                 <textarea id='infor-newspage-textarea' name='description' onChange={onChangeHandler} />
-                <button className='btn' >submit</button>
+                <button className='b-btn' >submit</button>
             </form>
             <div className='width-100 flex-column ai-center ji-center'>
                 {news.slice(0).reverse().map((n) => {

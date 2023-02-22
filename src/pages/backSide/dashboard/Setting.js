@@ -55,7 +55,7 @@ const Setting = () => {
                 <input id='1' type='text' onChange={onChangeHandler} name="name" value={values.name} className='width-50' />
                 <input id='2' type='email' name='email' onChange={onChangeHandler} value={values.email} className='width-50' />
                 <input id='2' type='file' onChange={uploadImg} />
-                <button type='submit' className='btn' >submit</button>
+                <button type='submit' className='b-btn' >submit</button>
             </form>
         </div>
     )
