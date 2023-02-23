@@ -9,8 +9,8 @@ const Admin = () => {
         <div className='width-100 height-50px' >
             < AdminNav />
         </div>
-        <div>
-      < Outlet/>
+        <div className='width-100'>
+      < Outlet className='width-100' />
       </div>
     </div>
   )
