@@ -1,9 +1,11 @@
+
 import axios from "axios";
 import React, { useReducer, useContext, createContext } from "react";
 import {
     REGISTER, LOGIN, LOGOUT, SHOW_ALERT, CLEAR_ALERT,
     GET_ALL_NEWS, GET_ONE_NEWS, GET_ALL_ANOUNCEMENT,
-    GET_ONE_ANOUNCEMENT, GET_ALL_AGENDA, GET_ONE_AGENDA
+    GET_ONE_ANOUNCEMENT, GET_ALL_AGENDA, GET_ONE_AGENDA,GET_ALL_MEMBERS,
+    GET_ONE_MEMBER
 } from "./action";
 import reducer from "./reducer";
 
@@ -23,7 +25,9 @@ const initialState = {
     anouncements: [],
     anouncement: {},
     agendas: [],
-    agenda: {}
+    agenda: {},
+    members:[],
+    member:{}
 }
 
 
@@ -228,6 +232,29 @@ const AppProvider = ({ children }) => {
         }
     }
 
+    const getMembers=async({type,data})=>{
+        try {
+            if(type==='all'){
+                const response= await axios.get(`${url}/admin`)
+                const users=response.data
+                dispatch({type:GET_ALL_MEMBERS,payload:users})
+            }
+            if(type=='sga'){
+                const response= await axios.get(`${url}/admin/sga`)
+                const users=response.data
+                dispatch({type:GET_ALL_MEMBERS,payload:users})
+            }
+            if(type=='name'){
+                const response= await axios.get(`${url}/admin/get/${data}`)
+                const users=response.data
+                dispatch({type:GET_ALL_MEMBERS,payload:users})
+            }
+        } catch(error) {
+            dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
+            clearALert()
+        }
+    }
+
 
 
     return (
@@ -235,7 +262,7 @@ const AppProvider = ({ children }) => {
             ...state, register, generalPost, login,
             logout, getAllNews, getOneNews, generalUpdate,
             generalDelete, getAllAnouncemnt, getOneAnouncement,
-            getAllAgenda,getOneAgenda
+            getAllAgenda,getOneAgenda,getMembers
         }}  >
             {children}
         </AppContext.Provider>

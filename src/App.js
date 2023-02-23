@@ -1,5 +1,9 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import { ShareLayoutOfBackSide, ProtectPage, Register, MainAdminPage,Setting,CalendarShow,Infor,AnouncementDetail } from "./pages/backSide";
+import {
+  ShareLayoutOfBackSide, Admin,
+  ProtectPage, Register, MainAdminPage, Setting, CalendarShow,
+  Infor, AnouncementDetail, AdminMainpage,SgaAdmin,NameSearchAdmin
+} from "./pages/backSide";
 import { ShareLayoutOfFront } from "./pages/frontSide";
 import { MainPage } from "./pages/frontSide";
 import Modal from 'react-modal'
@@ -18,15 +22,20 @@ function App() {
           </ProtectPage>
         } path='/app'>
           <Route path="/app/mainpage" element={<MainAdminPage />} />
-          <Route element={<Infor/>} path="/app/infor" />
+          <Route element={<Infor />} path="/app/infor" />
           <Route element={<CalendarShow />} path="/app/calender" />
-          <Route element={<Setting/>} path="/app/setting" />
-          <Route element={<AnouncementDetail/>} path="/app/infor/anouncement/:id"/>
+          <Route element={<Setting />} path="/app/setting" />
+          <Route element={<AnouncementDetail />} path="/app/infor/anouncement/:id" />
+          <Route element={<Admin />} path='/app/admin' >
+            <Route element={<AdminMainpage />} path='/app/admin'/>
+            <Route element={<SgaAdmin />} path='/app/admin/sga'/>
+            <Route element={<NameSearchAdmin />} path='/app/admin/name'/>
+          </Route>
         </Route>
         < Route element={<Register />} path='/register' />
       </Routes>
     </BrowserRouter>
-    
+
 
   );
 }

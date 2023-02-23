@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../style/Sidebar.css'
 import { useNavigate } from 'react-router-dom';
-import { BiCalendarStar, BiNews, BiMoney, BiGroup } from "react-icons/bi";
+import { BiCalendarStar, BiNews, BiMoney, BiGroup,BiUserCheck } from "react-icons/bi";
 import { useAppContext } from '../../../context/AppContext';
 
 const SideNav = () => {
@@ -18,8 +18,8 @@ const SideNav = () => {
             <div className='sidebar-icon-container' onClick={() => { navigate('/app/infor') }}>
                 <BiNews className='sidebar-icon' />
             </div>
-            <div className='sidebar-icon-container' onClick={() => { navigate('/app/fund') }} >
-                <BiMoney className='sidebar-icon' />
+            <div className='sidebar-icon-container' onClick={() => { navigate('/app/admin') }} >
+                <BiUserCheck className='sidebar-icon' />
             </div>
             <div className='sidebar-icon-container' onClick={() => { navigate('/app/club') }}>
                 <BiGroup className='sidebar-icon' />
