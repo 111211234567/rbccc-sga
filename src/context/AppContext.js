@@ -157,6 +157,7 @@ const AppProvider = ({ children }) => {
                 await axios.delete(`${url}/${mainPoint}/${secondePoint}/${mainId}/${subId}/${thirdId}`)
             }
         } catch (error) {
+            console.log(error)
             dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
             clearALert()
         }
