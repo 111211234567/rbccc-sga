@@ -32,7 +32,7 @@ const initialState = {
 
 
 const AppContext = React.createContext()
-const url = "http://localhost:5000/api/v1"
+const url = "https://sga-backend.onrender.com/api/v1"
 
 const AppProvider = ({ children }) => {
 
