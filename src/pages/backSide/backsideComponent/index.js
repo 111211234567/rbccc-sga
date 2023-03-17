@@ -8,4 +8,6 @@ import Agenda from "./inforPage/Agenda";
 import Setting from "../dashboard/Setting";
 import AdminNav from "./adminPage/AdminNav";
 import UserAdminModual from "./adminPage/UserAdminModual";
-export { Alert,UserAdminModual,AdminNav, SideNav, Topnav, InforPageTopNav, NewsPage, Anouncement, Agenda,Setting }
+import PublicEvent from "./inforPage/PublicEvent";
+import PublicEvnetDetail from "./inforPage/PublicEvnetDetail";
+export { Alert,PublicEvnetDetail,PublicEvent,UserAdminModual,AdminNav, SideNav, Topnav, InforPageTopNav, NewsPage, Anouncement, Agenda,Setting }

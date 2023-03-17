@@ -1,5 +1,5 @@
 .navMain {
-    height: 5vmin;
+    height: fit-content;
     display: flex;
     position: fixed;
     width: 100%;

@@ -10,6 +10,7 @@ import Admin from "./dashboard/Admin";
 import AdminMainpage from "./dashboard/adminPages/AdminMainpage";
 import NameSearchAdmin from "./dashboard/adminPages/NameSearchAdmin";
 import SgaAdmin from "./dashboard/adminPages/SgaAdmin";
+import { PublicEvnetDetail } from "./backsideComponent";
 
 export{ShareLayoutOfBackSide,Setting,ProtectPage,Register,MainAdminPage,CalendarShow,Infor
-,AnouncementDetail,Admin,AdminMainpage,NameSearchAdmin,SgaAdmin}
+,AnouncementDetail,Admin,AdminMainpage,NameSearchAdmin,SgaAdmin,PublicEvnetDetail}

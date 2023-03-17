@@ -5,7 +5,7 @@ import {
     REGISTER, LOGIN, LOGOUT, SHOW_ALERT, CLEAR_ALERT,
     GET_ALL_NEWS, GET_ONE_NEWS, GET_ALL_ANOUNCEMENT,
     GET_ONE_ANOUNCEMENT, GET_ALL_AGENDA, GET_ONE_AGENDA,GET_ALL_MEMBERS,
-    GET_ONE_MEMBER
+    GET_ONE_MEMBER,GET_ALL_PUBLICEVENT,GET_ONE_PUBLICEVENT
 } from "./action";
 import reducer from "./reducer";
 
@@ -27,12 +27,15 @@ const initialState = {
     agendas: [],
     agenda: {},
     members:[],
-    member:{}
+    member:{},
+    publicEvents:[],
+    publicEvent:{}
 }
 
 
 const AppContext = React.createContext()
-const url = "https://sga-backend.onrender.com/api/v1"
+const baseUrl="http://localhost:5000"
+const url = `${baseUrl}/api/v1`
 
 const AppProvider = ({ children }) => {
 
@@ -232,6 +235,28 @@ const AppProvider = ({ children }) => {
         }
     }
 
+    const getAllPublicEvent=async()=>{
+        try {
+            const response = await axios.get(`${url}/publicEvent`)
+            const publicEvents = response.data
+            dispatch({ type: GET_ALL_PUBLICEVENT, payload: publicEvents })
+        } catch(error) {
+            dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
+            clearALert()
+        }
+    }
+
+    const getOnePublicEvent=async({id})=>{
+        try {
+            const response = await axios.get(`${url}/publicEvent/get/${id}`)
+            const publicEvent = response.data
+            dispatch({ type: GET_ONE_PUBLICEVENT, payload: publicEvent })
+        } catch(error) {
+            dispatch({ type: SHOW_ALERT, payload: { msg: error.response.data.msg } })
+            clearALert()
+        }
+    }
+
     const getMembers=async({type,data})=>{
         try {
             if(type==='all'){
@@ -262,7 +287,8 @@ const AppProvider = ({ children }) => {
             ...state, register, generalPost, login,
             logout, getAllNews, getOneNews, generalUpdate,
             generalDelete, getAllAnouncemnt, getOneAnouncement,
-            getAllAgenda,getOneAgenda,getMembers
+            getAllAgenda,getOneAgenda,getMembers,getAllPublicEvent,
+            getOnePublicEvent
         }}  >
             {children}
         </AppContext.Provider>
@@ -273,4 +299,4 @@ const useAppContext = () => {
     return useContext(AppContext)
 }
 
-export { initialState, AppContext, useAppContext, AppProvider, }
+export { initialState, AppContext, useAppContext, AppProvider,baseUrl }

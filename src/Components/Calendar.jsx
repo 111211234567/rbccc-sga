@@ -4,6 +4,8 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import AddEventModal from "./AddEventModal";
 import axios from "axios";
 import moment from "moment";
+import { baseUrl } from "../context/AppContext";
+
 export default function () {
   const [modalOpen, setModalOpen] = useState(false);
   const calendarRef = useRef(null);
@@ -17,11 +19,11 @@ export default function () {
     });
   };
   async function handleEventAdd(data) {
-    await axios.post("/api1/api/calendar/create-event", data.event);
+    await axios.post(`${baseUrl}/api/calendar/create-event`, data.event);
   }
   async function handleDatesSet(data) {
     const response = await axios.get(
-      "/api1/api/calendar/get-events?start=" +
+      `${baseUrl}/api/calendar/get-events?start=` +
         moment(data.start).toISOString() +
         "&end=" +
         moment(data.end).toISOString()
@@ -42,11 +44,11 @@ export default function () {
         />
       </div>
 
-      <AddEventModal
+      {/* <AddEventModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         onEventAdded={(event) => onEventAdded(event)}
-      />
+      /> */}
     </section>
   );
 }

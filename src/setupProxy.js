@@ -3,7 +3,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware')
 module.exports = function (app) {
   app.use(
     createProxyMiddleware('/api1', { // 遇见‘/api1’这个前缀的请求，就会触发这个代理
-      target: 'https://sga-backend.onrender.com',  // 请求转发的目标（target）地址
+      target: 'http://127.0.0.1:5001',  // 请求转发的目标（target）地址
       changeOrigin: true,  // 默认值为false，控制服务器收到的请求头中Host字段的值
       /*
       	changeOrigin设置为true时，服务器收到的请求头中的host为：localhost:5000

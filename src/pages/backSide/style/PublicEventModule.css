@@ -1,0 +1,23 @@
+.publicEvent-parent{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.publicEvent-children{
+    border: 1px rgb(169, 169, 169) solid;
+    width: 25%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: 10px;
+}
+.publicEvent-children:hover{
+    border: 1px black solid;
+}

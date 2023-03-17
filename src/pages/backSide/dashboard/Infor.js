@@ -1,27 +1,30 @@
 import React, { useState } from 'react'
 import infrom from '../style/infor.css'
-import { InforPageTopNav, NewsPage, Anouncement, Agenda } from '../backsideComponent'
+import { InforPageTopNav, NewsPage, Anouncement, Agenda, PublicEvent } from '../backsideComponent'
 
 const Infor = () => {
-    const [page,setPage]=useState('News')
-    const changePage=(pageNam)=>{
+    const [page, setPage] = useState('News')
+    const changePage = (pageNam) => {
         setPage(pageNam)
     }
-    const showPage=()=>{
-        if(page==='News'){
+    const showPage = () => {
+        if (page === 'News') {
             return < NewsPage />
         }
-        if(page==='Agenda'){
+        if (page === 'Agenda') {
             return < Agenda />
         }
-        if(page==='Anouncement'){
+        if (page === 'Anouncement') {
             return < Anouncement />
+        }
+        if (page === 'publicEvent') {
+            return <PublicEvent />
         }
     }
     return (
         <div className='b-container flex-cloumn' >
             <div className='infor-topnav' >
-                < InforPageTopNav changePage={page=>changePage(page)} />
+                < InforPageTopNav changePage={page => changePage(page)} />
             </div>
             <div id='infor-content' >
                 {showPage()}

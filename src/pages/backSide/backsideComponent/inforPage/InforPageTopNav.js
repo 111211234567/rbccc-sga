@@ -7,6 +7,7 @@ const InforPageTopNav = ({changePage}) => {
       <div className='InforPage-topNav-choice' onClick={()=>changePage('Anouncement')} >Anouncement</div>
       <div className='InforPage-topNav-choice' onClick={()=>changePage('Agenda')} >Agenda</div>
       <div className='InforPage-topNav-choice' onClick={()=>changePage('News')} >News</div>
+      <div className='InforPage-topNav-choice' onClick={()=>changePage('publicEvent')} >Public Event</div>
     </div>
   )
 }
