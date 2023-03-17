@@ -10,8 +10,9 @@ const FrontNews = () => {
         getAllNews()
     }, [])
   return (
-    <div className='' id='infor-newspage-container flex-column ' >
+    <div className='beige' id='infor-newspage-container flex-column flex-center ' >
             <div className='width-100 flex-column ai-center ji-center'>
+            <h1>News</h1>
                 {news.slice(0).reverse().map((n) => {
                     return < FrontEndNewsModual News={n} />
                 })}

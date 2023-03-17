@@ -11,6 +11,7 @@ import AdminMainpage from "./dashboard/adminPages/AdminMainpage";
 import NameSearchAdmin from "./dashboard/adminPages/NameSearchAdmin";
 import SgaAdmin from "./dashboard/adminPages/SgaAdmin";
 import { PublicEvnetDetail } from "./backsideComponent";
+import BackEndNewsPage from "./dashboard/detailpage/BackEndNewsPage";
 
 export{ShareLayoutOfBackSide,Setting,ProtectPage,Register,MainAdminPage,CalendarShow,Infor
-,AnouncementDetail,Admin,AdminMainpage,NameSearchAdmin,SgaAdmin,PublicEvnetDetail}
+,AnouncementDetail,Admin,AdminMainpage,NameSearchAdmin,SgaAdmin,PublicEvnetDetail,BackEndNewsPage}

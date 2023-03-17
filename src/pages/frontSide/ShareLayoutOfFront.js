@@ -9,7 +9,7 @@ const ShareLayoutOfFront = () => {
   const navigate = useNavigate()
   return (
     <div className='main' >
-      <div className="navMain">
+      <div className="navMain z-5 ">
         <div className="logo">
           <img className="logoImage" src={Logo} alt="logo" />
         </div>

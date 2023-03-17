@@ -18,7 +18,7 @@ const reducer = (state, action) => {
         case GET_ALL_NEWS:
             return {...state, news:action.payload.news}
         case GET_ONE_NEWS:
-            return {...state,new:action.payload.news}
+            return {...state,theNew:action.payload.news}
         case GET_ALL_ANOUNCEMENT:
             return {...state,anouncements:action.payload }
         case GET_ONE_ANOUNCEMENT:

@@ -21,7 +21,7 @@ const initialState = {
     pageName: '',
     subPageName: '',
     news: [],
-    new: {},
+    theNew: {},
     anouncements: [],
     anouncement: {},
     agendas: [],
@@ -34,7 +34,7 @@ const initialState = {
 
 
 const AppContext = React.createContext()
-const baseUrl="http://localhost:5000"
+const baseUrl="https://sga-backend.onrender.com"
 const url = `${baseUrl}/api/v1`
 
 const AppProvider = ({ children }) => {
@@ -182,7 +182,7 @@ const AppProvider = ({ children }) => {
     }
     const getOneNews = async (NewsId) => {
         try {
-            const response = await axios.get(`${url}/news/new/${NewsId}`)
+            const response = await axios.get(`${url}/news/edite/${NewsId}`)
             const news = response.data
             dispatch({ type: GET_ONE_NEWS, payload: news })
         } catch (error) {

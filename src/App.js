@@ -3,7 +3,7 @@ import {
   ShareLayoutOfBackSide, Admin,
   ProtectPage, Register, MainAdminPage, Setting, CalendarShow,
   Infor, AnouncementDetail, AdminMainpage, SgaAdmin, NameSearchAdmin,
-  PublicEvnetDetail
+  PublicEvnetDetail,BackEndNewsPage
 } from "./pages/backSide";
 import { ShareLayoutOfFront } from "./pages/frontSide";
 import { MainPage } from "./pages/frontSide";
@@ -44,6 +44,7 @@ function App() {
           <Route element={<Setting />} path="/app/setting" />
           <Route element={<PublicEvnetDetail />} path="/app/infor/publicEvent/:id" />
           <Route element={<AnouncementDetail />} path="/app/infor/anouncement/:id" />
+          <Route element={<BackEndNewsPage/>} path='/app/infor/news/:id' />
           <Route element={<Admin />} path='/app/admin' >
             <Route element={<AdminMainpage />} path='/app/admin' />
             <Route element={<SgaAdmin />} path='/app/admin/sga' />

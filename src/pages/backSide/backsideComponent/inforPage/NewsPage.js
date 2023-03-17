@@ -10,6 +10,8 @@ const theValues = {
 }
 
 const NewsPage = () => {
+    const [number,setNumber]=useState(0)
+    const [imgs,setImgs]=useState([])
     const [values, setValues] = useState(theValues)
     const [img, setImg] = useState('')
     const { getAllNews, news, generalPost, user } = useAppContext()
@@ -42,6 +44,11 @@ const NewsPage = () => {
             console.log(error)
         }
     }
+    const addImg=()=>{
+        setImgs([...imgs,img])
+        
+        setNumber(number+1)
+    }
     const onSubmitHandler = (e) => {
         e.preventDefault();
         const date = new Date()
@@ -51,12 +58,11 @@ const NewsPage = () => {
         }
         const data = {
             title: values.title,
-            img: img,
+            img: imgs,
             description: values.description,
             userId: user.id,
             date: time
         }
-        console.log(data)
         generalPost({ endpoint, data }).then(() => {
             getAllNews()
         })
@@ -67,6 +73,8 @@ const NewsPage = () => {
                 <div>
                     <input name='title' placeholder='title' onChange={onChangeHandler} />
                     <input name='img' type="file" placeholder='img' onChange={(e) => { uploadImg(e) }} />
+                    <div className='height-10px bgc-grey b-1px-grey hover-green' onClick={()=>{addImg()}} >add img</div>
+                    <div>number of imgs:{number}</div>
                 </div>
                 <textarea id='infor-newspage-textarea' name='description' onChange={onChangeHandler} />
                 <button className='b-btn' >submit</button>
@@ -75,7 +83,7 @@ const NewsPage = () => {
                 {news.slice(0).reverse().map((n) => {
                     return < BacksideNews News={n} />
                 })}
-                {/* {showNews()} */}
+                {/* <button onClick={()=>{console.log(news)}} >sd</button> */}
             </div>
         </div>
     )
