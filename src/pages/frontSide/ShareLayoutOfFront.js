@@ -4,6 +4,7 @@ import Navbar from '../frontSide/styles/navbar.css'
 import mainStyle from '../frontSide/styles/mainStyle.css'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { frontEndTopNav } from './frontEndModule'
+import rbcicon from './images/RBC2.png'
 
 const ShareLayoutOfFront = () => {
   const navigate = useNavigate()
@@ -11,7 +12,7 @@ const ShareLayoutOfFront = () => {
     <div className='main' >
       <div className="navMain z-5 ">
         <div className="logo">
-          <img className="logoImage" src={Logo} alt="logo" />
+          <img className="logoImage" src={rbcicon} alt="logo" />
         </div>
         <div className="interactables">
           <div className="events">
@@ -34,6 +35,9 @@ const ShareLayoutOfFront = () => {
       <div className='mainBody'>
         <Outlet />
       </div>
+      <footer className='footer' >
+
+      </footer>
     </div>
   )
 }

@@ -7,6 +7,7 @@
     height: fit-content;
     flex-direction: column;
     width: 100%;
+    min-height: 1000px;
 
 }
 .who-we-are {
@@ -30,4 +31,10 @@
     color: black;
     font-size: 70px;
     font-weight: bolder;
+}
+.footer{
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    display: flex;
 }
